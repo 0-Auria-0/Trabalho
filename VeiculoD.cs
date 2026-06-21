@@ -1,11 +1,12 @@
-﻿using MySql.Data.MySqlClient; 
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-using Trabalho;
+
+namespace Trabalho;
 
 public class VeiculoDAL
 {
-    private string linhaConexao = "Server=localhost;Database=ControleVeiculos;Uid=root;Pwd=SUA_SENHA;";
+    private string linhaConexao = "Server=localhost;Database=ControleVeiculos;Uid=root;Pwd=suzana123;";
 
     public void InserirVeiculoNoBanco(VeiculoModel veiculo)
     {
@@ -48,7 +49,7 @@ public class VeiculoDAL
         MySqlCommand comando = new MySqlCommand("sp_DeleteVeiculo", conexao);
         comando.CommandType = CommandType.StoredProcedure;
 
-        comando.Parameters.AddWithValue("@p_id", id);
+        comando.Parameters.AddWithValue("p_id", id);
 
         conexao.Open();
         comando.ExecuteNonQuery();

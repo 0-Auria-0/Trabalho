@@ -12,6 +12,10 @@ public class VeiculoBLL
         {
             throw new Exception("A placa do veículo é obrigatória!");
         }
+        if (string.IsNullOrEmpty(veiculo.Modelo))
+        {
+            throw new Exception("O modelo do veículo é obrigatório!");
+        }
 
         dal.InserirVeiculoNoBanco(veiculo);
     }
@@ -20,7 +24,7 @@ public class VeiculoBLL
     {
         if (veiculo.IdVeiculo <= 0)
         {
-            throw new Exception("ID inválido para alteração!");
+            throw new Exception("Selecione um veículo na tabela antes de editar!");
         }
 
         dal.AlterarVeiculoNoBanco(veiculo);
@@ -30,7 +34,7 @@ public class VeiculoBLL
     {
         if (id <= 0)
         {
-            throw new Exception("ID inválido para exclusão!");
+            throw new Exception("Selecione um veículo na tabela antes de excluir!");
         }
 
         dal.ExcluirVeiculoNoBanco(id);
